@@ -1,0 +1,79 @@
+"""
+import random
+lista = []
+for i in range(10):
+    szamok = random.randint(1, 10)
+    lista.append(szamok)
+print(lista)
+
+
+"""
+"""
+lista1 = [1,3,2,4,5,6]
+def indexelo(lista:list):
+    db = 0   
+    for index in lista:
+        db += 1
+        if index == 2:
+            return db
+print(indexelo(lista1))
+"""
+
+nevek_jegyek = []
+csak_jegyek = []
+
+
+diak_szam = int(input("Hany diakot szeretnel hozzadni: "))
+
+szamlalo = 0
+
+for jegy in range(diak_szam):
+    szamlalo = szamlalo + 1
+    tan_neve = input(f"kerem az {szamlalo} diak nevet: ")
+    tan_jegye =int(input(f"kerem az {tan_neve} jegyet: "))
+    nevek_jegyek.append((tan_neve,tan_jegye) )
+    csak_jegyek.append(tan_jegye)
+
+kerdes = input("szeretned latni az osszes diakot?(igen/nem): ")
+
+if kerdes == "nem":
+    False
+if kerdes == "igen":
+    print("Nevek  |  jegyek")
+    for lista in nevek_jegyek:
+        print(lista)
+        
+        
+atlag = input("szeretned tudni az atlagos jegyet? (igen/nem)")
+if atlag == "nem":
+    False
+if atlag == "igen":
+    print(f"A jegyek atlaga: {sum(csak_jegyek) / len(csak_jegyek)}")
+
+
+jegyek = input("szeretned tudni a legmagasabb es legalacsonyabb jegyet? (igen/nem)")
+if jegyek == "nem":
+    False
+if jegyek == "igen":
+    print(f"A legnagyobb jegy:  {max(csak_jegyek)} es a legkisebb jegy: {min(csak_jegyek)}")
+    
+    
+    
+eltavolitas = input("szeretned eltavolitani egy diakot? (igen/nem)")
+if eltavolitas == "nem":
+    False
+if eltavolitas == "igen":
+    diak_nev = input("melyik diakot toroljem ki?: ")
+    print(f"diak kitorolve: {diak_nev}")
+    db = 0
+    
+    for torles in nevek_jegyek:
+        
+        for vegleges in torles:
+                if vegleges == diak_nev:
+                    nevek_jegyek.pop(db)
+        db += 1            
+        for lista in nevek_jegyek:
+            print("Nevek | jegyek")
+            print(lista)
+
